@@ -8,5 +8,6 @@ namespace name_sorter.Services
 {
     public class NameSorter
     {
+
     }
 }

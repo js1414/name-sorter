@@ -12,15 +12,19 @@ namespace name_sorter.Model
         public string LastName  { get; }
 
         public Name(string fullName)
-        { 
-            var nameParts = fullName.Split(' ',  StringSplitOptions.RemoveEmptyEntries); // Break full name into individual string
-            if (nameParts.Length > 2 || nameParts.Length > 4)
-                throw new ArgumentException("A name must have 1-3 given names and last name.");
+        {
+            //This helps clean up names that may have leading or trailing spaces.
+
+            var nameParts = fullName.Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            if (nameParts.Length < 2 || nameParts.Length > 4) // Set limit for names number
+                throw new ArgumentException("A name must have 1–3 given names and a last name.");
 
             LastName = nameParts.Last();
             GivenNames  = nameParts.Take(nameParts.Length - 1).ToList();
 
         }
+
+        public override string ToString() => string.Join(" ", GivenNames.Append(LastName));
 
        
 
