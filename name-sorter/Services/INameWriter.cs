@@ -8,5 +8,7 @@ namespace name_sorter.Service
 {
     public interface INameWriter
     {
+        void WriteLine(IEnumerable<string> names);
+
     }
 }
