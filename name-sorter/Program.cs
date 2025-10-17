@@ -1,8 +1,32 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using name_sorter.Model;
 using name_sorter.Service;
+using name_sorter.Services;
 
-Console.WriteLine("Hello, World!");
 
-string filePath = args.Length > 0 ? args[0] : "unsorted-names-list.txt"; //read default path if it is nkit given
 
-//INameWriter writer = new FileNameReader(filePath);
+
+string inputFile = args.Length > 0 ? args[0] : "unsorted-names-list.txt";  // File path
+
+INameReader reader = new FileNameReader(inputFile);
+INameSorter sorter = new NameSorter();
+INameWriter writer = new ConsoleNameWriter();
+
+//var names = reader.ReadNames().Select(n => new PersonName(n));
+//var sortedNames = sorter.Sort(names);
+
+//writer.WriteNames(sortedNames.Select(n => n.ToString()));
+
+// Optional: write to file
+//File.WriteAllLines("sorted-names-list.txt", sortedNames.Select(n => n.ToString()));
+
+Console.WriteLine("--------Sorted names: ");
+
+    var names = reader.ReadNames().Select(n => new Name(n));
+    var sortedNames = sorter.Sort(names).ToList();
+    writer.WriteNames(sortedNames.Select(n => n.ToString()));
+
+    // Optional: write to file
+    File.WriteAllLines("sorted-names-list.txt", sortedNames.Select(n => n.ToString()));
+    //File.WriteAllLines("sorted-names-list.txt", sortedNames.Select(n => n.ToString()));
+
