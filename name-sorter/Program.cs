@@ -12,23 +12,21 @@ INameReader reader = new FileNameReader(inputFile);
 INameSorter sorter = new NameSorter();
 INameWriter writer = new ConsoleNameWriter();
 
-//var names = reader.ReadNames().Select(n => new PersonName(n));
-//var sortedNames = sorter.Sort(names);
+try
+{
+    var names = reader.ReadNames().Select(n => new Name(n));
+    var sortedNames = sorter.Sort(names).ToList();
+    writer.WriteLine(sortedNames.Select(n => n.ToString()));
 
-//writer.WriteNames(sortedNames.Select(n => n.ToString()));
+   // writer.WriteName(sortedNames.Select(n => n.ToString()));
 
-// Optional: write to file
-//File.WriteAllLines("sorted-names-list.txt", sortedNames.Select(n => n.ToString()));
-
-
-var names = reader.ReadNames().Select(n => new Name(n));
-var sortedNames = sorter.Sort(names).ToList();
-writer.WriteLine(sortedNames.Select(n => n.ToString()));
-
-
-//writer.WriteNames(sortedNames.Select(n => n.ToString()));
-
-// Optional: write to file
-File.WriteAllLines("sorted-names-list.txt", sortedNames.Select(n => n.ToString()));
-//File.WriteAllLines("sorted-names-list.txt", sortedNames.Select(n => n.ToString()));
+    // Optional: write to file
+    File.WriteAllLines("sorted-names-list.txt", sortedNames.Select(n => n.ToString()));
+    //File.WriteAllLines("sorted-names-list.txt", sortedNames.Select(n => n.ToString()));
+}
+catch (Exception ex)
+{
+    Console.Error.WriteLine($"Error: file no found" + ex);
+    Environment.Exit(1);
+}
 
