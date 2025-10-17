@@ -8,5 +8,6 @@ namespace name_sorter.Service
 {
     public interface INameReader
     {
+        IEnumerable<string> ReadNames();
     }
 }
