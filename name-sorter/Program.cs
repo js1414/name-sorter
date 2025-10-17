@@ -24,7 +24,7 @@ Console.WriteLine("--------Sorted names: ");
 
     var names = reader.ReadNames().Select(n => new Name(n));
     var sortedNames = sorter.Sort(names).ToList();
-    writer.WriteNames(sortedNames.Select(n => n.ToString()));
+    writer.WriteName(sortedNames.Select(n => n.ToString()));
 
     // Optional: write to file
     File.WriteAllLines("sorted-names-list.txt", sortedNames.Select(n => n.ToString()));
