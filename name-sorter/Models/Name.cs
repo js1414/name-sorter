@@ -20,7 +20,7 @@ namespace name_sorter.Model
                 throw new ArgumentException("A name must have 1–3 given names and a last name.");
 
             LastName = nameParts.Last(); //set the last element of a collection as last name.
-            GivenNames  = nameParts.Take(nameParts.Length - 1).ToList();  // Select elements of collection but exclude the last one
+            GivenNames  = nameParts.Take(nameParts.Length - 1).ToList();  // Select elements of the collection but exclude the last one
         }
 
         public override string ToString() => string.Join(" ", GivenNames.Append(LastName));

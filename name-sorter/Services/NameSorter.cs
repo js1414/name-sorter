@@ -12,6 +12,8 @@ namespace name_sorter.Services
     {
         public IEnumerable<Name> Sort(IEnumerable<Name> names)
         {
+            //Sorts all names alphabetically by last name first.
+            //Breaks ties if two or more last names are the same, using the full given names.
             return names
                 .OrderBy(n => n.LastName)
                 .ThenBy(n => string.Join(" ", n.GivenNames))
