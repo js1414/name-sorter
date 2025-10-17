@@ -6,6 +6,7 @@ using name_sorter.Services;
 
 string inputFile = args.Length > 0 ? args[0] : "unsorted-names-list.txt";  // File path
 
+//Objects
 INameReader reader = new FileNameReader(inputFile);
 INameSorter sorter = new NameSorter();
 INameWriter writer = new ConsoleNameWriter();
