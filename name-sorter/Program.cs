@@ -20,13 +20,15 @@ INameWriter writer = new ConsoleNameWriter();
 // Optional: write to file
 //File.WriteAllLines("sorted-names-list.txt", sortedNames.Select(n => n.ToString()));
 
-Console.WriteLine("--------Sorted names: ");
 
-    var names = reader.ReadNames().Select(n => new Name(n));
-    var sortedNames = sorter.Sort(names).ToList();
-    writer.WriteName(sortedNames.Select(n => n.ToString()));
+var names = reader.ReadNames().Select(n => new Name(n));
+var sortedNames = sorter.Sort(names).ToList();
+writer.WriteLine(sortedNames.Select(n => n.ToString()));
 
-    // Optional: write to file
-    File.WriteAllLines("sorted-names-list.txt", sortedNames.Select(n => n.ToString()));
-    //File.WriteAllLines("sorted-names-list.txt", sortedNames.Select(n => n.ToString()));
+
+//writer.WriteNames(sortedNames.Select(n => n.ToString()));
+
+// Optional: write to file
+File.WriteAllLines("sorted-names-list.txt", sortedNames.Select(n => n.ToString()));
+//File.WriteAllLines("sorted-names-list.txt", sortedNames.Select(n => n.ToString()));
 

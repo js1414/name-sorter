@@ -9,12 +9,15 @@ namespace name_sorter.Services
 {
     public class ConsoleNameWriter : INameWriter
     {
-        //Write sorted names to screen
         public void WriteLine(IEnumerable<string> names)
         {
             Console.WriteLine("-------Sorted name: ");
             foreach (var name in names)
                 Console.WriteLine(name);
         }
+
+        //Write sorted names to screen
+      
     }
-}
+ }
+
