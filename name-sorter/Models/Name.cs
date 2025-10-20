@@ -9,7 +9,7 @@ namespace name_sorter.Model
     public class Name
     {
         public List<string> GivenNames { get; }
-        public string LastName  { get; }
+        public string LastName { get; }
 
         public Name(string fullName)
         {
