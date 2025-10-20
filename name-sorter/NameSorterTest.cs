@@ -1,8 +1,9 @@
-﻿using name_sorter.Model;
+﻿using System;
+using name_sorter.Model;
 using name_sorter.Name_Sorter;
 using name_sorter.Services;
 using NUnit.Framework;
-using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
