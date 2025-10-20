@@ -14,7 +14,7 @@ namespace name_sorter.Services
         {
             Console.WriteLine("-------Sorted name: ");
             foreach (var name in names)
-                Console.WriteLine(name); 
+                Console.WriteLine(name);
         }
 
      
