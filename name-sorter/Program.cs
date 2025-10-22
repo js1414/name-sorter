@@ -4,7 +4,7 @@ using name_sorter.Service;
 using name_sorter.Services;
 
 
-string inputFile = args.Length > 0 ? args[0] : "unsorted-names-list.txt";  // File path
+string inputFile = args.Length > 0 ? args[0] : "unsorted-names.txt";  // File path
 
 //Objects
 INameReader reader = new FileNameReader(inputFile);
