@@ -9,11 +9,12 @@ namespace name_sorter.Service
     public class FileNameReader : INameReader
     {
         private readonly string _filePath;
-        public FileNameReader(string filePath) => _filePath = filePath;
+
+        public FileNameReader(string filePath) => _filePath = filePath; //The part after the arrow (=> _filePath = filePath;)
+                                                                        //is shorthand for assigning that parameter to a private field in the class.
 
         public IEnumerable<string> ReadNames()
         {
-            //return File.ReadAllLines(_filePath).Where(line => !string.IsNullOrWhiteSpace(line));
 
             try
             {
